@@ -1,0 +1,22 @@
+{
+  "platform-version": "2.2",
+  "product": {
+    "freshdesk": {
+      "events": {
+        "afterAppUpdate": {
+          "handler": "afterAppUpdateHandler"
+        },
+        "onAppInstall":{
+          "handler":"onAppInstallHandler"
+        }
+      }
+    }
+  },
+  "whitelisted-domains": [
+    "http://localhost:8976"
+  ],
+  "engines": {
+    "node": "14.20.0",
+    "fdk": "8.6.4"
+  }
+}
