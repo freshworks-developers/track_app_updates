@@ -1,15 +1,18 @@
 exports = {
-  afterAppUpdateHandler: function(args) {
-    console.log('args', args);
-  },
-  onAppInstallHandler: async function (args) {
-    let url = 'http://localhost:8976/log'
+  afterAppUpdateHandler: async function(args) {
+  let url = 'http://localhost:8080/log'
     try {
-      var res = await $request.post(url, { body: JSON.stringify({ message: "172"}) });
+      const res = await $request.post(url, {
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify(args)
+      });
+      console.log('response from middleware', res.response);
     } catch (error) {
       console.error('error', error);
     }
-    console.log(res.response);
     renderData();
+  },
+  onAppInstallHandler: async function (args) {
+    console.log('onAppInstallHandler Invoked!', args)
   }
 };

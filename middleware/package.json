@@ -4,8 +4,8 @@
   "description": "",
   "main": "middleware.js",
   "scripts": {
-    "start":"node middleware.js",
-    "dev":"nodemon middleware.js"
+    "start": "node middleware.js",
+    "dev": "nodemon middleware.js"
   },
   "author": "Saif Shines",
   "license": "ISC",

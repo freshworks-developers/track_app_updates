@@ -1,14 +1,13 @@
-const fs = require('fs');
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
-const port = 8976;
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/log', (req, res) => {
-  console.log('req from app', req)
-  res.write("Hi");
-  res.end();
+    console.log('Got body:', req.body);
+    res.sendStatus(200);
 });
 
-app.listen(port, () => {
-  console.log(`Middleware is running on port: ${port}:`);
-})
+app.listen(8080, () => console.log(`Started server at http://localhost:8080!`));
